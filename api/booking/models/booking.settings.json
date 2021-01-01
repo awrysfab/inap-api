@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "name": "booking"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "start_date": {
+      "required": true,
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "total_price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "guest": {
+      "model": "guest",
+      "via": "bookings"
+    },
+    "property": {
+      "via": "bookings",
+      "model": "property"
+    },
+    "room": {
+      "model": "room",
+      "via": "bookings"
+    }
+  }
+}
